@@ -41,6 +41,7 @@ def get_freight_class(density):
     else:
         return 50
 
+
 def get_lbs_vol_density():
     dictionary = {}
     for piece in range(1, num_pieces + 1):
@@ -49,22 +50,24 @@ def get_lbs_vol_density():
         width = float(input("What is the width of piece {}? ".format(piece)))
         height = float(input("What is the height of piece {}? ".format(piece)))
         cu_ft = (length * width * height) / 1728
-        
+
         dictionary["piece{}_cu_ft".format(piece)] = cu_ft
     return dictionary
+
 
 def get_total_volume(dict):
     total_vol = 0
     for piece in range(1, num_pieces + 1):
-        total_vol  += dict["piece{}_cu_ft".format(piece)]
+        total_vol += dict["piece{}_cu_ft".format(piece)]
     return float(total_vol)
+
 
 def get_total_weight(dict):
     total_weight = 0
     for piece in range(1, num_pieces + 1):
         total_weight += dict["piece{}_weight".format(piece)]
     return float(total_weight)
-        
+
 if __name__ == "__main__":
     while True:
         # Prompts user for number of pieces
